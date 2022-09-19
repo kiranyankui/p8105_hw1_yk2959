@@ -9,6 +9,11 @@ date: "2022-09-19"
 
 I have used the code provided and ran the code directly in the console to download the package containing the penguins dataset.
 
+```{r}
+install.packages("palmerpenguins")
+```
+
+
 *Next, I will use the following code to load and explore the penguins dataset.* 
 
 ```{r}
