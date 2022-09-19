@@ -4,10 +4,6 @@ output: html_document
 date: "2022-09-19"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Problem 1
 #### Loading and exploring the dataset
 
@@ -15,9 +11,10 @@ I have used the code provided and ran the code directly in the console to downlo
 
 *Next, I will use the following code to load and explore the penguins dataset.* 
 
-```{Load Penguins dataset and explore contents of dataset}
+```{r}
 library(tidyverse)
 library(knitr)
+
 data("penguins", package = "palmerpenguins")
 
 str(penguins)
@@ -27,7 +24,6 @@ View(penguins$island)
 
 nrow(penguins)
 ncol(penguins)
-
 ```
 
 __This dataset contains the following variables__ 
@@ -44,15 +40,18 @@ __This dataset contains the following variables__
 __The dataset has 344 rows and 8 columns.__
 
 __Mean flipper length is 200.9152mm based on the following code:__
-```{mean of flipper length of penguins}
+
+```{r}
 mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
 
 #### Make a scatterplot
-```{scatterplot}
+```{r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 ```
+*Scatterplot not generated and cannot be saved*
 
 ## Problem 2
+
 
 
