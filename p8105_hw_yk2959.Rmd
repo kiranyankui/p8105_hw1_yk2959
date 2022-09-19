@@ -9,11 +9,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Problem 1
+#### Loading and exploring the dataset
+
 I have used the code provided and ran the code directly in the console to download the package containing the penguins dataset.
 
-Next, I will use the following code to load the penguins dataset. 
+*Next, I will use the following code to load and explore the penguins dataset.* 
 
 ```{Load Penguins dataset and explore contents of dataset}
+library(tidyverse)
+library(knitr)
 data("penguins", package = "palmerpenguins")
 
 str(penguins)
@@ -26,7 +30,8 @@ ncol(penguins)
 
 ```
 
-*This dataset contains the following variables:* 
+__This dataset contains the following variables__ 
+
 1. species: factor with 3 levels, "Adelie","Chinstrap", and "Gentoo"
 2. island: factor with 3 levels, "Biscoe","Dream" and "Torgersen"
 3. bill length (mm): numerical variable  
@@ -36,33 +41,18 @@ ncol(penguins)
 7. sex: factor with 2 levels, "female" and "male"
 8. year: integer variable
 
-*The dataset has 344 rows and 8 columns.* 
+__The dataset has 344 rows and 8 columns.__
 
-the data in this dataset, including names / values of important variables
-the size of the dataset (using nrow and ncol)
-the mean flipper length
+__Mean flipper length is 200.9152mm based on the following code:__
+```{mean of flipper length of penguins}
+mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
 
-
-
+#### Make a scatterplot
+```{scatterplot}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+```
 
 ## Problem 2
 
 
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
