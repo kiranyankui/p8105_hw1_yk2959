@@ -42,7 +42,11 @@ __This dataset contains the following variables__
 7. sex: factor with 2 levels, "female" and "male"
 8. year: integer variable
 
+NUMBER OF OBSERVATIONS
+
 __The dataset has 344 rows and 8 columns.__
+__There are 344 observations and 8 variables.__
+
 
 __Mean flipper length is 200.9152mm based on the following code:__
 
