@@ -8,7 +8,17 @@ date: "2022-09-19"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Problem 1
+I have used the code provided and ran the code directly in the console to download the package containing the penguins dataset.
+
+Next, I will use the following code to load the penguins dataset. 
+
+## Problem 2
+
+```{Load Penguins Dataset}
+data("penguins", package = "palmerpenguins")
+```
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
