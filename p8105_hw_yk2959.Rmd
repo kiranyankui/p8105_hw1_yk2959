@@ -13,11 +13,40 @@ I have used the code provided and ran the code directly in the console to downlo
 
 Next, I will use the following code to load the penguins dataset. 
 
+```{Load Penguins dataset and explore contents of dataset}
+data("penguins", package = "palmerpenguins")
+
+str(penguins)
+
+View(penguins$species)
+View(penguins$island)
+
+nrow(penguins)
+ncol(penguins)
+
+```
+
+*This dataset contains the following variables:* 
+1. species: factor with 3 levels, "Adelie","Chinstrap", and "Gentoo"
+2. island: factor with 3 levels, "Biscoe","Dream" and "Torgersen"
+3. bill length (mm): numerical variable  
+4. bill depth: (mm): numerical variable  
+5. flipper length: integer variable 
+6. body mass (g): integer variable
+7. sex: factor with 2 levels, "female" and "male"
+8. year: integer variable
+
+*The dataset has 344 rows and 8 columns.* 
+
+the data in this dataset, including names / values of important variables
+the size of the dataset (using nrow and ncol)
+the mean flipper length
+
+
+
+
 ## Problem 2
 
-```{Load Penguins Dataset}
-data("penguins", package = "palmerpenguins")
-```
 
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
