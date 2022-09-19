@@ -9,10 +9,6 @@ date: "2022-09-19"
 
 I have used the code provided and ran the code directly in the console to download the package containing the penguins dataset.
 
-```{r}
-install.packages("palmerpenguins")
-```
-
 
 *Next, I will use the following code to load and explore the penguins dataset.* 
 
@@ -31,6 +27,7 @@ nrow(penguins)
 ncol(penguins)
 ```
 
+
 __This dataset contains the following variables__ 
 
 1. species: factor with 3 levels, "Adelie","Chinstrap", and "Gentoo"
@@ -42,7 +39,6 @@ __This dataset contains the following variables__
 7. sex: factor with 2 levels, "female" and "male"
 8. year: integer variable
 
-NUMBER OF OBSERVATIONS
 
 __The dataset has 344 rows and 8 columns.__
 __There are 344 observations and 8 variables.__
@@ -55,12 +51,13 @@ mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
 
 #### Make a scatterplot
+I have made a scatterplot of flipper length(mm) against bill length (mm) for the dataset penguins. I have color-coded observations based on species of penguins. 
 ```{r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 ggsave("scatter_plot.pdf", height = 4, width = 6)
 
 ```
-
+---
 ## Problem 2
 Here is the dataset prob2_df that I created.
 ```{r}
@@ -73,25 +70,50 @@ prob2_df = tibble(
 
 str(prob2_df)
 ```
-* Calculating mean for norm_sample, a random sample of size 10 from a standard Normal distribution:
+__Calculating mean for norm_sample, a random sample of size 10 from a standard Normal distribution:__
+
+* Using pull function
+```{r}
+library(tidyverse)
+mean(pull(prob2_df, norm_samp))
+```
+* Using mean() function to double check
 ```{r}
 mean(prob2_df$norm_samp)
 ```
 __This works as the vector is numerical!__
 
-* Calculating mean for  norm_samp_pos, a logical vector indicating whether elements of the sample are greater than 0:
+__Calculating mean for  norm_samp_pos, a logical vector indicating whether elements of the sample are greater than 0:__
+
+* Using pull function
+```{r}
+mean(pull(prob2_df, norm_samp_pos))
+```
+* Using mean() function to double check
 ```{r}
 mean(prob2_df$norm_samp_pos)
 ```
 __This works as the vector is logical!__
 
-* Calculating mean for  charac_vec, a character vector of length 10:
+__Calculating mean for  charac_vec, a character vector of length 10:__
+
+* Using pull function
+```{r}
+mean(pull(prob2_df, charac_vec))
+```
+* Using mean() function to double check
 ```{r}
 mean(prob2_df$charac_vec)
 ```
 __This does not works as this is a character variable!__
 
-* Calculating mean for  factor_vec, a factor vector of length 10, with 3 different factor “levels”:
+__Calculating mean for  factor_vec, a factor vector of length 10, with 3 different factor “levels”__
+
+* Using pull function
+```{r}
+mean(pull(prob2_df, factor_vec))
+```
+* Using mean() function to double check
 ```{r}
 mean(prob2_df$factor_vec)
 ```
