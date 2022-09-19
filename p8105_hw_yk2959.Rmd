@@ -48,10 +48,42 @@ mean(penguins$flipper_length_mm, na.rm = TRUE)
 #### Make a scatterplot
 ```{r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+
 ```
-*Scatterplot not generated and cannot be saved*
 
 ## Problem 2
+Here is the dataset prob2_df that I created.
+```{r}
+prob2_df = tibble(
+  norm_samp = rnorm(10),
+  norm_samp_pos = norm_samp > 0,
+  charac_vec = c("one","two","three","four","five","six","seven", "eight","nine","ten"), 
+  factor_vec = factor(c("Happy", "Sad", "Mad", "Happy", "Sad", "Mad", "Happy", "Sad", "Mad", "Happy"))
+  )
 
+str(prob2_df)
+```
+* Calculating mean for norm_sample, a random sample of size 10 from a standard Normal distribution:
+```{r}
+mean(prob2_df$norm_samp)
+```
+__This works as the vector is numerical!__
 
+* Calculating mean for  norm_samp_pos, a logical vector indicating whether elements of the sample are greater than 0:
+```{r}
+mean(prob2_df$norm_samp_pos)
+```
+__This works as the vector is logical!__
 
+* Calculating mean for  charac_vec, a character vector of length 10:
+```{r}
+mean(prob2_df$charac_vec)
+```
+__This does not works as this is a character variable!__
+
+* Calculating mean for  factor_vec, a factor vector of length 10, with 3 different factor “levels”:
+```{r}
+mean(prob2_df$factor_vec)
+```
+__This does not works as this is a character variable!__
