@@ -1,6 +1,6 @@
 ---
 title: "p8105_hw1_yk2959"
-output: html_document
+output: github_document
 date: "2022-09-19"
 ---
 
@@ -20,9 +20,6 @@ library(tidyverse)
 data("penguins", package = "palmerpenguins")
 
 str(penguins)
-
-View(penguins$species)
-View(penguins$island)
 
 nrow(penguins)
 ncol(penguins)
@@ -117,4 +114,6 @@ mean(pull(prob2_df, factor_vec))
 ```{r}
 mean(prob2_df$factor_vec)
 ```
-__This does not works as this is a character variable!__
+__This does not works as this is a factor variable!__
+
+The reason why it is possible to produce a mean with numeric and logical vectors is because vectors have to be numeric for the mean to be derived. Logical vectors are able to produce a mean because when you use a boolean vector, mean() converts it to a numeric vector and TRUE becomes 1 and FALSE beceomes 0. Therefore, we cannot get a mean for the factor and character variables!

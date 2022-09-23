@@ -385,9 +385,7 @@ penguins dataset.</em></p>
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(knitr)
-
-data(&quot;penguins&quot;, package = &quot;palmerpenguins&quot;)
+<pre class="r"><code>data(&quot;penguins&quot;, package = &quot;palmerpenguins&quot;)
 
 str(penguins)</code></pre>
 <pre><code>## tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
@@ -399,14 +397,11 @@ str(penguins)</code></pre>
 ##  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
 ##  $ sex              : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 1 1 NA 1 2 1 2 NA NA ...
 ##  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
-<pre class="r"><code>View(penguins$species)
-View(penguins$island)
-
-nrow(penguins)</code></pre>
+<pre class="r"><code>nrow(penguins)</code></pre>
 <pre><code>## [1] 344</code></pre>
 <pre class="r"><code>ncol(penguins)</code></pre>
 <pre><code>## [1] 8</code></pre>
-<p><strong>This dataset contains the following variables</strong></p>
+<p>This dataset contains the following variables</p>
 <ol style="list-style-type: decimal">
 <li>species: factor with 3 levels, “Adelie”,“Chinstrap”, and
 “Gentoo”</li>
@@ -422,10 +417,9 @@ nrow(penguins)</code></pre>
 </ol>
 <p><strong>The dataset has 344 rows and 8 columns.</strong>
 <strong>There are 344 observations and 8 variables.</strong></p>
-<p><strong>Mean flipper length is 200.9152mm based on the following
-code:</strong></p>
-<pre class="r"><code>mean(penguins$flipper_length_mm, na.rm = TRUE)</code></pre>
-<pre><code>## [1] 200.9152</code></pre>
+<p>Mean flipper length is 200.9152mm based on the following code.</p>
+<pre class="r"><code>mean(penguins$flipper_length_mm, na.rm = TRUE, 2)</code></pre>
+<pre><code>## [1] 197</code></pre>
 </div>
 <div id="make-a-scatterplot" class="section level4">
 <h4>Make a scatterplot</h4>
@@ -452,8 +446,8 @@ species of penguins.</p>
 
 str(prob2_df)</code></pre>
 <pre><code>## tibble [10 × 4] (S3: tbl_df/tbl/data.frame)
-##  $ norm_samp    : num [1:10] 0.62065 -0.00127 1.38284 0.06092 0.41344 ...
-##  $ norm_samp_pos: logi [1:10] TRUE FALSE TRUE TRUE TRUE FALSE ...
+##  $ norm_samp    : num [1:10] 1.3364 0.0151 -0.1066 0.193 0.5563 ...
+##  $ norm_samp_pos: logi [1:10] TRUE TRUE FALSE TRUE TRUE FALSE ...
 ##  $ charac_vec   : chr [1:10] &quot;one&quot; &quot;two&quot; &quot;three&quot; &quot;four&quot; ...
 ##  $ factor_vec   : Factor w/ 3 levels &quot;Happy&quot;,&quot;Mad&quot;,..: 1 3 2 1 3 2 1 3 2 1</code></pre>
 <p><strong>Calculating mean for norm_sample, a random sample of size 10
@@ -463,12 +457,12 @@ from a standard Normal distribution:</strong></p>
 </ul>
 <pre class="r"><code>library(tidyverse)
 mean(pull(prob2_df, norm_samp))</code></pre>
-<pre><code>## [1] 0.2171873</code></pre>
+<pre><code>## [1] -0.07113739</code></pre>
 <ul>
 <li>Using mean() function to double check</li>
 </ul>
 <pre class="r"><code>mean(prob2_df$norm_samp)</code></pre>
-<pre><code>## [1] 0.2171873</code></pre>
+<pre><code>## [1] -0.07113739</code></pre>
 <p><strong>This works as the vector is numerical!</strong></p>
 <p><strong>Calculating mean for norm_samp_pos, a logical vector
 indicating whether elements of the sample are greater than
@@ -477,12 +471,12 @@ indicating whether elements of the sample are greater than
 <li>Using pull function</li>
 </ul>
 <pre class="r"><code>mean(pull(prob2_df, norm_samp_pos))</code></pre>
-<pre><code>## [1] 0.7</code></pre>
+<pre><code>## [1] 0.6</code></pre>
 <ul>
 <li>Using mean() function to double check</li>
 </ul>
 <pre class="r"><code>mean(prob2_df$norm_samp_pos)</code></pre>
-<pre><code>## [1] 0.7</code></pre>
+<pre><code>## [1] 0.6</code></pre>
 <p><strong>This works as the vector is logical!</strong></p>
 <p><strong>Calculating mean for charac_vec, a character vector of length
 10:</strong></p>
