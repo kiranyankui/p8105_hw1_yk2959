@@ -14,8 +14,9 @@ I have used the code provided and ran the code directly in the console to downlo
 
 ```{r}
 library(tidyverse)
-library(knitr)
+```
 
+```{r}
 data("penguins", package = "palmerpenguins")
 
 str(penguins)
@@ -27,8 +28,7 @@ nrow(penguins)
 ncol(penguins)
 ```
 
-
-__This dataset contains the following variables__ 
+This dataset contains the following variables
 
 1. species: factor with 3 levels, "Adelie","Chinstrap", and "Gentoo"
 2. island: factor with 3 levels, "Biscoe","Dream" and "Torgersen"
@@ -44,10 +44,10 @@ __The dataset has 344 rows and 8 columns.__
 __There are 344 observations and 8 variables.__
 
 
-__Mean flipper length is 200.9152mm based on the following code:__
+Mean flipper length is 200.9152mm based on the following code. 
 
 ```{r}
-mean(penguins$flipper_length_mm, na.rm = TRUE)
+mean(penguins$flipper_length_mm, na.rm = TRUE, 2)
 ```
 
 #### Make a scatterplot
